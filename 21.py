@@ -25,31 +25,10 @@ class Solution:
             return l2
         if not l2:
             return l1
+        
+        ans = head = ListNode()
 
-        # head = l1 if l1.val<=l2.val else l2
-        # if l1.val<=l2.val:
-        #     head = l1
-        #     l1 = l1.next
-        #     if l1.val<=l2.val:
-        #         ans = l1
-        #         l1 = l1.next
-        #     else:
-        #         ans = l2
-        #         l2 = l2.next
-            
-        # else:
-        #     head = l2
-        #     l2 = l2.next
-        #     if l1.val<=l2.val:
-        #         ans = l1
-        #         l1 = l1.next
-        #     else:
-        #         ans = l2
-        #         l2 = l2.next
-
-        ans = ListNode()
-
-        while l1 or l2:
+        while l1 and l2: 
             if l1.val<=l2.val:
                 ans.next = l1
                 l1 = l1.next
@@ -58,4 +37,7 @@ class Solution:
                 l2 = l2.next
             ans = ans.next
 
-        return ans
+        if l1: ans.next = l1
+        if l2: ans.next = l2
+        
+        return head.next
