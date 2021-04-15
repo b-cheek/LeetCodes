@@ -21,6 +21,18 @@ class Solution0:
                 i+=1
         return i
 
+class Solution1:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        size = len(nums)
+        if size==0: return 0
+        i = 0
+        while i<size:
+            if nums[i]==val:
+                nums[i] = nums[size-1]
+                size-=1
+            else: i+=1
+        return i
+
 nums = [3]
 val = 2
 s = Solution()
