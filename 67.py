@@ -19,8 +19,15 @@ class Solution:
         if a[0] == "0": return "".join(a[1:])
         return "".join(a)
 
+class Solution0:
+    def addBinary(self, a: str, b: str) -> str:
+        a = int(a, 2)
+        b = int(b, 2)
+        a+=b
+        return bin(a)[2:]
 
-s = Solution()
+
+s = Solution0()
 a = "100110"
 b = "111111"
 print(s.addBinary(a, b))
