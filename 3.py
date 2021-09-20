@@ -17,9 +17,19 @@ class Solution:
 
 class Solution1:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        return 0
+        # if len(s)<2: return len(s)
+        l = 0
+        r = 0
+        maxSubStrLen = 0
+        while l<len(s)-maxSubStrLen and r<len(s):
+            print(s, l, r)
+            if s[r] in s[l:r]: 
+                if r-l>maxSubStrLen: maxSubStrLen = r-l
+                l = s.index(s[r], l) + 1
+            r+=1
+        return max(r-l, maxSubStrLen)
 
-s = Solution()
-string = "aab"
+s = Solution1()
+string = " "
 print(s.lengthOfLongestSubstring(string))
 
