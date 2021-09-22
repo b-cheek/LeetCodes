@@ -28,8 +28,24 @@ class Solution1:
                 l = s.index(s[r], l) + 1
             r+=1
         return max(r-l, maxSubStrLen)
+    
+class Solution2:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        l = r = res = 0
+        chars = [0]*128
+        while r<len(s):
+            chars[ord(s[r])] += 1
 
-s = Solution1()
+            while chars[ord(s[r])]>1:
+                chars[ord(s[l])] -= 1
+                l+=1
+            
+            res = max(res, r-l+1)
+            r+=1
+        
+        return res
+
+s = Solution2()
 string = " "
 print(s.lengthOfLongestSubstring(string))
 
