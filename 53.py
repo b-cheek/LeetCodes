@@ -45,7 +45,7 @@ class Solution1:
                 max = i
         return max
 
-class Solution2: 
+class Solution2: #basically a more complicated version of solution 3
     def maxSubArray(self, nums: List[int]) -> int:
         pointer = 0
         subArrTotal = 0
@@ -59,6 +59,22 @@ class Solution2:
             pointer+=1
         if allNegativeMax<0: return allNegativeMax
         return max
+
+class Solution3: #dp, create array of the sum of previous sumarrays, but when it goes below 0 start back at 0 because that's >=
+    def maxSubArray(self, nums: List[int]) -> int:
+        numsLen = len(nums)
+        dp = [0]*numsLen
+        maxNum = dp[0] = nums[0]
+
+        if numsLen>1:
+            for i in range(1, numsLen):
+                dp[i] = nums[i] + (0 if dp[i-1]<=0 else dp[i-1])
+                maxNum = max(maxNum, dp[i])
+
+            return maxNum
+
+        else:
+            return nums[0]
         
 
 c = Solution2()
