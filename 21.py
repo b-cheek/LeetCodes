@@ -41,3 +41,18 @@ class Solution:
         if l2: ans.next = l2
         
         return head.next
+
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+
+        if list1<list2:
+            list1.next = mergeTwoLists(list1.next, list2)
+            return list1
+        else:
+            list2.next = mergeTwoLists(list1, list2.next)
+            return list2
+            
