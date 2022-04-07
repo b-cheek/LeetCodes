@@ -21,7 +21,7 @@ class Solution0:
             
         return front        
 
-class Solution1:
+class Solution1:    #recursive
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         def reverseListRecursive(self, head: Optional[ListNode], newHead: Optional[ListNode]):
             if not head:
@@ -32,7 +32,7 @@ class Solution1:
         
         return reverseListRecursive(self, head, None) 
 
-class Solution2:
+class Solution2:    #iterative
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         newHead = None
         while (head):
