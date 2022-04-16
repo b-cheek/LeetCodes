@@ -44,4 +44,4 @@ thisdict = {
 
 * Ordered (unordered until Python 3.7)
 * Changeable
-* Duplicates note allowed
+* Duplicates not allowed
