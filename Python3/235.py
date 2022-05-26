@@ -27,7 +27,7 @@ class Solution1:
 class Solution2: #Not on sheet, it seems that the double comparison (<>) is slow
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         while True:
-            if p.val<root.val>q.val:
+            if p.val<root.val>q.val: #note that although this is less readable than p.val<q.val<root.val, it does NOT mean the same thing. Code!=Math
                 root = root.left
             elif p.val>root.val<q.val:
                 root = root.right
