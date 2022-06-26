@@ -1,6 +1,10 @@
 from typing import List
 from random import randint
+from random import random
+from random import shuffle
+from math import sqrt
 
+#Binary Search Tree Testing
 class Node: 
     def __init__(self, value):
         self.value = value
@@ -114,3 +118,34 @@ BFS(testTree.root)
 # iterativePostorderDFT(testTree.root)
 # print("")
 # postorder(testTree.root)
+
+#Generic Tree Testing
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.neighbors = []
+
+def addNode(node, value, depth):
+    if (node.neighbors and random.random()<(1/math.sqrt(depth+1)-0.1)):
+        addNode(node.neighbors[random.randint(0, len(node.neighbors)-1)], value, depth+1)
+    else:
+        node.neighbors.append(TreeNode(value))
+        
+
+startNode = TreeNode(0)
+
+numsList = []
+for i in range(1,100):
+    numsList.append(i)
+random.shuffle(numsList)
+
+for i in numsList:
+    addNode(startNode, i, 0)
+
+def printBigTree(node, tabString):
+    print(tabString, node.value)
+    if node.neighbors:
+        for i in node.neighbors:
+            printBigTree(i, tabString+"\t")
+
+printBigTree(startNode, "")

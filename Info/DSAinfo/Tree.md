@@ -117,7 +117,7 @@ def postorder(current):
     visit(current)
 ```
 
-It should be noted that this algorithm can also be performed iteratively, using a stack data structure to operate similarly to the call stack in the recursive function. For simplicity, a python list will be used
+It should be noted that this algorithm can also be performed iteratively, using a stack data structure (use a dequeue in python) to operate similarly to the call stack in the recursive function. For simplicity, a python list will be used
 
 ```python
 def iterativePreorderDFT(root):
@@ -186,4 +186,41 @@ def BFS(root):
         if node.left: queue.append(node.left)
         if node.right: queue.append(node.right)
         print(node.value)
+```
+
+# Regular Tree
+
+I accidentally made a generalized(?) tree when trying to create a graph, meaning a tree where the each node can have as many children as possible. Maybe I'll do something with this in the future but here's the code:
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.neighbors = []
+
+#Randomly going deeper in the tree to put the nodes in random-ish places. Note that earlier added nodes are more likely to get children
+def addNode(node, value, depth):
+    if (node.neighbors and random.random()<(1/math.sqrt(depth+1)-0.1)):
+        addNode(node.neighbors[random.randint(0, len(node.neighbors)-1)], value, depth+1)
+    else:
+        node.neighbors.append(TreeNode(value))
+        
+
+root = TreeNode(0)
+
+numsList = []
+for i in range(1,100):
+    numsList.append(i)
+random.shuffle(numsList)
+
+for i in numsList:
+    addNode(root, i, 0)
+
+def printBigTree(node, tabString):
+    print(tabString, node.value)
+    if node.neighbors:
+        for i in node.neighbors:
+            printBigTree(i, tabString+"\t")
+
+printBigTree(root, "")
 ```
