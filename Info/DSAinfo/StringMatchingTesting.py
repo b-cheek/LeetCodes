@@ -1,9 +1,12 @@
+def nativeStringMatch(haystack, needle): #Note that languages often implement things like string algorithms natively, so as we depart from basic code, our runtime might become slower 
+    return haystack.index(needle) #However, python's .index only works if the needle is in the haystack
+
 def veryNaiveStringMatch(haystack, needle): #returns index of needle in haystack, -1 if otherwise
     for i in range(len(haystack)-len(needle)+1):
         if haystack[i:i+len(needle)]==needle: return i
     return -1
 
-def naiveStringMatch(haystack, needle):
+def naiveStringMatch(haystack, needle): 
     for i in range(len(haystack)-len(needle)+1):
         match = True
         for j in range(len(needle)):
@@ -77,10 +80,8 @@ def kmpStringMatchSimple(haystack, needle):
             if j == m: return i-len(needle)+1 #if you've reached the end, return index where needle begins
     return -1
 
+print(nativeStringMatch("search", "arch"))
 print(veryNaiveStringMatch("search", "arch"))
 print(naiveStringMatch("search", "arch"))
 print(kmpStringMatch("search", "arch"))
 print(kmpStringMatchSimple("search", "arch"))
-
-print(kmpStringMatch("aabaaabaaac", "aabaaac"))
-print(kmpStringMatchSimple("aabaaabaaac", "aabaaac"))
