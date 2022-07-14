@@ -33,7 +33,7 @@ class Solution2:
             if not node: continue #slow, see above
             q.append((node.left, depth+1))
             q.append((node.right, depth+1))
-        return depth
+        return depth #Since we are essentially doing the same as Solution1 and BFS and DFS both traverse every node exactly once, BFS is faster because it does not need to check the max every iteration, only the end
 
 class Solution3: #Fixed error from Solution1
     def maxDepth(self, root: Optional[TreeNode]) -> int:
