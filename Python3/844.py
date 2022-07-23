@@ -1,4 +1,4 @@
-class Solution0:
+class Solution0: #See Solution 2 for a better version of this
     def backspaceCompare(self, s: str, t: str) -> bool:
         def typeWord(s: str) -> str:
             wordDQ = deque([])
@@ -16,18 +16,18 @@ class Solution0:
                 
         return typeWord(s)==typeWord(t)
         
-class Solution1:
+class Solution1: #In place going forwards, took me too long and not the best though
     def backspaceCompare(self, s: str, t: str) -> bool:
         def typeWord(s: str) -> str:
             wordPointer=0
             while wordPointer<len(s):
                 if s[wordPointer]=="#":
-                    if wordPointer==0:
+                    if wordPointer==0: #If we're at the front of the word
                         s = s[1:]
-                        wordPointer -= 1
+                        wordPointer -= 1 #Because we're only removing the #
                     else:
                         s = s[:wordPointer-1] + s[wordPointer+1:]
-                        wordPointer -= 2
+                        wordPointer -= 2 #because we're deleting a # and the char it backspaces
                 wordPointer += 1
             return s
                 
