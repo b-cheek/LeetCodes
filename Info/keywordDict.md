@@ -50,11 +50,28 @@ thisdict.get("brand", None) == "Ford"
 
 but will return `None` if there is no brand key.
 
+NOTE: anything that is immutable can be used as a key. This means that strings and tuples are viable, but not lists, sets, or dicts.
+
+NOTE the existence of defaultdict:
+
+```python
+from collections import defaultdict
+
+myDefaultDict = defaultdict(list)
+## Currently empty
+myDefaultDict["nonExistentKey"].append(["wow"])
+```
+
+The above code shows how default dict will initialize a key to an empty default type if not already present. Pretty helpful huh
+
 Iterate:
 
 ```python
 for key in myDict:
-    print(myDict[key])
+  print(myDict[key])
+
+for value in myDict.values():
+  print (myDict[value])
 ```
 
 ## Algorithms
@@ -96,7 +113,7 @@ print(myStr)
 
 Works generally how you think, with += as well, etc.
 
-Items of an iterable:
+String items of an iterable: (The items **MUST** be strings)
 
 ```python
 "separator".join(iterable)
@@ -119,6 +136,10 @@ print(x)
 str to list: `myList = list(myStr)`
 
 char to int: `myInt = ord(myChar)`
+
+list to str: `myStr = str(myList)` (Note that the result looks like `"[1, 2, 3]"` as if in console)
+
+list to tuple `myTuple = tuple(myList)`
 
 ### Length
 
