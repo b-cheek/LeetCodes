@@ -42,4 +42,16 @@ class Solution3: #Like S2 but with a hash map, making it faster
             if wordsDict[key]: return False
             
         return True
+
+class Solution4: #Like S3, but create separate dicts for each string. Somehow slow?
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t): return False
+        wordsDict1 = {}
+        wordsDict2 = {}
+        
+        for i in range (0, len(s)):
+            wordsDict1[s[i]] = wordsDict1.get(s[i], 0) + 1
+            wordsDict2[t[i]] = wordsDict2.get(t[i], 0) + 1
+            
+        return wordsDict1 == wordsDict2
             
