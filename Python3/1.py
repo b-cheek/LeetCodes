@@ -32,3 +32,10 @@ class Solution2:
             if nums[i] in differenceDict:
                 return [differenceDict[nums[i]], i]
             differenceDict[target-nums[i]] = i
+
+class Solution3: #Using enumerate for the for loop
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        numsDict = {}
+        for numID, num in enumerate(nums):
+            if num in numsDict: return [numsDict[num], numID]
+            numsDict[target-num] = numID

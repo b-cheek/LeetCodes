@@ -127,3 +127,13 @@ len(object)
 ```
 
 returns number of items in an object or characters in string
+
+### Enumerate (For loop with index and item)
+
+Takes a collection and gives an id to each item, useful to get features of a traditional and enhanced for loop
+
+```python
+for index, value in enumerate(nums):
+  print("The index is", index)
+  print("The value is", value)
+```
