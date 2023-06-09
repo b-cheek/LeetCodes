@@ -6,7 +6,7 @@ Note I am only adding to this document AS I COME ACROSS things that I don't know
 
 ### List
 
-Initialize:
+**Initialize:**
 
 ```python
 myList = [1, 2, 3]
@@ -18,7 +18,7 @@ Note that the last list is initialized with 26 0's
 
 ### Set
 
-Initialize:
+**Initialize:**
 
 ```python
 mySet = {"apple", "banana", "cherry"}
@@ -29,7 +29,7 @@ Check if contains: `if "apple" in mySet`
 
 ### Dictionary
 
-Initialize:
+**Initialize:**
 
 ```python
 thisdict = {
@@ -40,13 +40,17 @@ thisdict = {
 emptyDict = {}
 ```
 
-Access: `thisdict["brand"] == "Ford"`
+**Access:** 
+
+`thisdict["brand"] == "Ford"`
 
 OR
 
 ```python
 thisdict.get("brand", None) == "Ford"
 ```
+
+Note that the `None` can be replaced with a default value. See example usage below after defaultdict
 
 but will return `None` if there is no brand key.
 
@@ -64,7 +68,19 @@ myDefaultDict["nonExistentKey"].append(["wow"])
 
 The above code shows how default dict will initialize a key to an empty default type if not already present. Pretty helpful huh
 
-Iterate:
+Alternatively, you can use .get, which takes an argument to return a default value if there is no key:
+
+```python
+dict.get(keyname, value)
+## In our example:
+myDict = {}
+## Currently empty
+myDict["nonExistentKey"] = 
+  myDict.get("nonExistentKey", []) += [["wow"]] 
+  ## Note that double brackets are necessary because      concatenating not appending
+```
+
+**Iterate:**
 
 ```python
 for key in myDict:
@@ -78,7 +94,7 @@ for value in myDict.values():
 
 ### Sort
 
-Any iterable:
+**Any iterable:**
 
 ```python
 sorted(iterable, key=key, reverse=reverse)
@@ -88,7 +104,7 @@ Returns sorted iterable
 
 [W3 page](https://www.w3schools.com/python/ref_func_sorted.asp)
 
-Lists:
+**Lists:**
 
 ```python
 list.sort(reverse=True|False, key=myFunc)
@@ -100,7 +116,7 @@ Modifies list in place
 
 ## Concatenate
 
-Strings:
+**Strings:**
 
 ```python
 part1 = 'py'
@@ -112,6 +128,12 @@ print(myStr)
 `python`
 
 Works generally how you think, with += as well, etc.
+
+**Lists:**
+
+```python
+[1,2,3] + [4,5,6] == [1,2,3,4,5,6]
+```
 
 String items of an iterable: (The items **MUST** be strings)
 
@@ -131,6 +153,37 @@ print(x)
 
 `John#Peter#Vicky#`
 
+### Append
+
+**Lists:**
+
+```python
+temp = [1,2]
+temp.append(3)
+temp == [1,2,3]
+```
+
+**Dictionary:**
+
+```python
+myDict = {1: "One"}
+myDict[2] = "Two"
+myDict == {
+  1: "One",
+  2: "Two"
+}
+```
+
+**Set:**
+
+```python
+mySet = {1, 2}
+mySet.add(3)
+mySet == {1, 2, 3}
+```
+
+(Note that set is technically unordered)
+
 ### Change data type
 
 str to list: `myList = list(myStr)`
@@ -138,6 +191,8 @@ str to list: `myList = list(myStr)`
 char to int: `myInt = ord(myChar)`
 
 list to str: `myStr = str(myList)` (Note that the result looks like `"[1, 2, 3]"` as if in console)
+
+list of strings to string: `myStr = ''.join(myStrList)`
 
 list to tuple `myTuple = tuple(myList)`
 
