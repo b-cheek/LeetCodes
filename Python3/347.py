@@ -49,3 +49,7 @@ class Solution2: ## Heap/Priority Queue
             res.append(heapq.heappop(heap)[1]) ## Get just the num with highest freq
 
         return res
+
+
+## Note that another possible solution similar to S2 is to use a self balancing tree
+## I saw this as an ordered map in java, actually a red black tree

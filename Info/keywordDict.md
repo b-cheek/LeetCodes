@@ -12,9 +12,22 @@ Note I am only adding to this document AS I COME ACROSS things that I don't know
 myList = [1, 2, 3]
 myList = ['a', 'b', 'c']
 myList = [0]*26
+myDigitsList = [i for i in range(10)]
 ```
 
 Note that the last list is initialized with 26 0's
+
+### Range
+
+Note that I pretty much only use `range()` in for loops, so this description will reflect that. Note that range actually returns a range object, but is as an iterable for my purposes
+
+**Initialize:**
+
+```python
+range(start=0, stop, step=1)
+```
+
+Note that `start=0` and `step=1` indicates that these are optional parameters, and gives their default value.
 
 ### Set
 
@@ -40,7 +53,7 @@ thisdict = {
 emptyDict = {}
 ```
 
-**Access:** 
+**Access:**
 
 `thisdict["brand"] == "Ford"`
 
@@ -89,6 +102,30 @@ for key in myDict:
 for value in myDict.values():
   print (myDict[value])
 ```
+
+### Heap
+
+**Initialize:**
+
+```python
+import heapq
+
+myHeap = []
+```
+
+Note that this is just a list. A heap is often represented as a list, read up on heaps. The heapq module (likely named because a heap is teh typical implementation of a priority queue) gives methods to perform heap operations on a list.
+
+**Add:**
+
+`heapq.heappush(myHeap, item)`
+
+Note that `item` can be anything I think, I don't know if there is a way to modify the invariant though
+
+**Access/Remove:**
+
+`heapq.heappop(myHeap)`
+
+Note that this will pop the item with the smallest value from the heap, since heapq does a min heap.
 
 ## Algorithms
 
@@ -213,3 +250,16 @@ for index, value in enumerate(nums):
   print("The index is", index)
   print("The value is", value)
 ```
+
+## Other concepts to understand
+
+I think the best way to explain this section is to just explain why I decided to add it. In P347, I used the heapq module, and I think in an interview it's reasonable to expect an interviewer to check if I understand heaps in general. Since that knowledge isn't required to write the python code, I won't go into full detail since this is a "keywordDict." However, the purpose of this document is to enumerate technical vocabulary to know for the interview as I come across it in LC problem, so I'm still listing these sorts of things as vocabulary to know.
+
+* Heap
+* Self-balancing tree
+  * Probably not necessary to know implentation but examples:
+  * Red-black
+  * AVL
+  * Splay
+
+I hope I add more to this since it's funny when the description is so long compared to the actual list.
