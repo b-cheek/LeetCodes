@@ -17,6 +17,14 @@ myDigitsList = [i for i in range(10)]
 
 Note that the last list is initialized with 26 0's
 
+**Append:**
+
+```python
+temp = [1,2]
+temp.append(3)
+temp == [1,2,3]
+```
+
 ### Range
 
 Note that I pretty much only use `range()` in for loops, so this description will reflect that. Note that range actually returns a range object, but is as an iterable for my purposes
@@ -40,6 +48,16 @@ emptySet = set()
 
 Check if contains: `if "apple" in mySet`
 
+**Append:**
+
+```python
+mySet = {1, 2}
+mySet.add(3)
+mySet == {1, 2, 3}
+```
+
+(Note that set is technically unordered)
+
 ### Dictionary
 
 **Initialize:**
@@ -51,6 +69,17 @@ thisdict = {
   "year": 1964
 }
 emptyDict = {}
+```
+
+**Append:**
+
+```python
+myDict = {1: "One"}
+myDict[2] = "Two"
+myDict == {
+  1: "One",
+  2: "Two"
+}
 ```
 
 **Access:**
@@ -103,7 +132,7 @@ for value in myDict.values():
   print (myDict[value])
 ```
 
-### Heap
+### Priority Queue (Heap)
 
 **Initialize:**
 
@@ -115,7 +144,7 @@ myHeap = []
 
 Note that this is just a list. A heap is often represented as a list, read up on heaps. The heapq module (likely named because a heap is teh typical implementation of a priority queue) gives methods to perform heap operations on a list.
 
-**Add:**
+**Append:**
 
 `heapq.heappush(myHeap, item)`
 
@@ -126,6 +155,27 @@ Note that `item` can be anything I think, I don't know if there is a way to modi
 `heapq.heappop(myHeap)`
 
 Note that this will pop the item with the smallest value from the heap, since heapq does a min heap.
+
+### Stack/Queue
+
+Stacks and queues are typically implemented using python's deque (pronounced "deque") module, short for double-ended queue. This means that you can pop or push from either the left or right end
+
+**Initialize:**
+
+```python
+from collections import deque
+
+myDeque = deque()
+myDeque = deque([1,2,3])
+```
+
+#### As a Stack
+
+**Push:** `myStack.append(1)`
+
+**Pop:** `myStack.pop()` (Note this returns the popped value as well)
+
+**Access:** `frontVal = myStack[-1]`
 
 ## Algorithms
 
@@ -151,7 +201,7 @@ Modifies list in place
 
 [W3 page](https://www.w3schools.com/python/ref_list_sort.asp)
 
-## Concatenate
+### Concatenate
 
 **Strings:**
 
@@ -189,37 +239,6 @@ print(x)
 ```
 
 `John#Peter#Vicky#`
-
-### Append
-
-**Lists:**
-
-```python
-temp = [1,2]
-temp.append(3)
-temp == [1,2,3]
-```
-
-**Dictionary:**
-
-```python
-myDict = {1: "One"}
-myDict[2] = "Two"
-myDict == {
-  1: "One",
-  2: "Two"
-}
-```
-
-**Set:**
-
-```python
-mySet = {1, 2}
-mySet.add(3)
-mySet == {1, 2, 3}
-```
-
-(Note that set is technically unordered)
 
 ### Change data type
 
