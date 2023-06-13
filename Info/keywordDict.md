@@ -280,5 +280,7 @@ I think the best way to explain this section is to just explain why I decided to
   * Red-black
   * AVL
   * Splay
+* Maximum subarray
+  * Kadane's Algorithm ([P21](/Python3/21.py))
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.

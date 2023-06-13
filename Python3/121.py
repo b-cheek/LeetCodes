@@ -48,7 +48,8 @@ class Solution3: # Smarter implementation of Kadane's Algorithm, O(n)
 class Solution4: # Same as Solution3 but with a list of differences, O(n)
     def maxProfit(self, prices: List[int]) -> int:
         diffList = [0] + [prices[i]-prices[i-1] for i in range(1, len(prices))]
-        
+        ## Get the difference between each day so maximum subarray problem is more direct
+
         maxProfit = profit = 0
 
         for buyIndex in range(len(prices)):
