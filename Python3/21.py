@@ -3,24 +3,10 @@ class ListNode:
     def __init__(self, val=1, next=None):
         self.val = val
         self.next = next
-class Solution:
+class Solution0:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode):
-        # if not l1:
-        #     return l2
-        # if not l2:
-        #     return l1
-        
-        # ans = ListNode()
 
-        # if l1.val<=l2.val:
-        #     ans = l1
-        #     ans.next = self.mergeTwoLists(l1.next, l2)
-        # else:
-        #     ans = l2
-        #     ans.next = self.mergeTwoLists(l1, l2.next)
-
-        # return ans
-
+        # This is not necessary
         if not l1:
             return l2
         if not l2:
@@ -38,11 +24,11 @@ class Solution:
             ans = ans.next
 
         if l1: ans.next = l1
-        if l2: ans.next = l2
+        if l2: ans.next = l2 # could just be else
         
         return head.next
 
-class Solution:
+class Solution1: # Recursive woo
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if not list1:
             return list2
