@@ -353,7 +353,9 @@ list to str: `myStr = str(myList)` (Note that the result looks like `"[1, 2, 3]"
 
 list of strings to string: `myStr = ''.join(myStrList)`
 
-list to tuple `myTuple = tuple(myList)`
+list to tuple: `myTuple = tuple(myList)`
+
+list to set (removes duplicates): mySet = `set(myList)`
 
 ### Length
 

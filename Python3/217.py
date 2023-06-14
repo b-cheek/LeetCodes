@@ -14,7 +14,7 @@ class Solution1:
             numsDict.append(i)
         return False
 
-class Solution2:
+class Solution2: ## Note that sets use hashing for access, that's why it's good
     def containsDuplicate(self, nums: List[int]) -> bool:
         numsSet = set()
         for i in nums:
@@ -22,8 +22,10 @@ class Solution2:
             numsSet.add(i)
         return False
 
+class Solution3: ## Cheeky one liner, takes advantage of sets having no duplicates. Not as good as S2
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums)>len(set(nums))
         
-
 s = Solution1()
 nums=[0, 1, 3, 3, 0]
 print(s.containsDuplicate(nums))
