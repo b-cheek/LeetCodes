@@ -317,7 +317,8 @@ print(x)
 ### Slicing/Subscripting
 
 A lot of the following is taken from this [GREAT stackoverflow post
-]()
+](https://stackoverflow.com/questions/509211/how-slicing-in-python-works)
+
 I typically think of this as being used to access ordered iterables, like lists, strings, tuples, etc.
 
 ```python
@@ -416,6 +417,7 @@ Note that `start=0` and `step=1` indicates that these are optional parameters, a
 
 I think the best way to explain this section is to just explain why I decided to add it. In P347, I used the heapq module, and I think in an interview it's reasonable to expect an interviewer to check if I understand heaps in general. Since that knowledge isn't required to write the python code, I won't go into full detail since this is a "keywordDict." However, the purpose of this document is to enumerate technical vocabulary to know for the interview as I come across it in LC problem, so I'm still listing these sorts of things as vocabulary to know.
 
+* Hashing
 * Heap
 * Self-balancing tree
   * Probably not necessary to know implentation but examples:
@@ -424,5 +426,9 @@ I think the best way to explain this section is to just explain why I decided to
   * Splay
 * Maximum subarray
   * Kadane's Algorithm ([P21](/Python3/21.py))
+* Recursion
+  * Implemented as stack
+* Breadth first vs depth first traversal
+* Tail recursion?
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.

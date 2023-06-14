@@ -13,7 +13,7 @@ class Solution0: #Pretty simple imo, O(n)?
             root.right = self.invertTree(temp)
         return root
             
-class Solution1: #Also O(n)
+class Solution1: # S1 but iteratively Also O(n)
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root: return None
         stack = deque([root])
@@ -46,7 +46,7 @@ class Solution3: #I think my theory may have been correct, or for whatevever rea
         if not root: return None
         stack = deque([root])
         while stack:
-            node = stack.pop() #BFS WOW!!!!
+            node = stack.popleft() #BFS WOW!!!! (Last one was DFS)
             if not node: continue 
             temp = node.left
             node.left = node.right
@@ -54,4 +54,3 @@ class Solution3: #I think my theory may have been correct, or for whatevever rea
             stack.append(node.left)
             stack.append(node.right)
         return root
-            
