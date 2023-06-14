@@ -25,17 +25,32 @@ temp.append(3)
 temp == [1,2,3]
 ```
 
-### Range
+### String
 
-Note that I pretty much only use `range()` in for loops, so this description will reflect that. Note that range actually returns a range object, but is as an iterable for my purposes
+Note that strings are arrays. However, there is no character data type, just strings of length 1.
 
 **Initialize:**
 
 ```python
-range(start=0, stop, step=1)
+myStr = "Hello World!"
+smallStr = 'a'
 ```
 
-Note that `start=0` and `step=1` indicates that these are optional parameters, and gives their default value.
+Again note that `smallStr` is just a str of length 1, also illustrating that there is no difference between single and double quotes, I just like to use single quotes for small things like that as a matter of convention.
+
+**Append:**
+
+```python
+msg = "Hello"
+msg += " world!"
+msg == "Hello World!"
+```
+
+Note that + can also be used for [concatenation](#concatenate)
+
+**To Lowercase:** `myStr.lower()` (Note this returns a string, not in place)
+
+**Check if alphanumeric:** `myStr.isalnum()`
 
 ### Set
 
@@ -130,6 +145,10 @@ for key in myDict:
 
 for value in myDict.values():
   print (myDict[value])
+
+for key, value in myDict.items():
+  print("Key:", key)
+  print("Value:", value)
 ```
 
 ### Priority Queue (Heap)
@@ -201,6 +220,61 @@ Modifies list in place
 
 [W3 page](https://www.w3schools.com/python/ref_list_sort.asp)
 
+#### Sort Key
+
+To define the sorting order, use the key parameter, a function that returns the thing to be sorted by.
+
+This example sorts a list of strings by (increasing) length instead of alphabetically:
+
+```python
+myStrList.sort(key=lambda s : len(s))
+```
+
+### Filter
+
+```python
+filter(function, iterable)
+```
+
+if the function returns True then it passes through the filter (the item remains in the iterable)
+
+Note the existence of [lambdas](#lambda), useful for functions with function parameters
+
+For example see this fragment adapted from [P125](/Python3/125.py):
+
+```python
+alNumIter = filter(lambda char : char.isalnum(), s)
+```
+
+Note that the filter function returns an iterator, use `''.join(alNumIter)` to turn it back into a string
+
+### Lambda
+
+```python
+lambda arguments : expression
+```
+
+Here is a simple example making a multiplication function with `def`, and then the same function with `lambda`
+
+```python
+def multiply(a, b):
+  return a*b
+
+lambdaMultiply = lambda a, b : a*b
+```
+
+I also like this example from [W3Schools](https://www.w3schools.com/python/python_lambda.asp):
+
+```python
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+```
+
+Note that lambda functions are useful as parameters to other functions, see [sort](#sort) and [filter](#filter).
+
 ### Concatenate
 
 **Strings:**
@@ -240,6 +314,35 @@ print(x)
 
 `John#Peter#Vicky#`
 
+### Slicing/Subscripting
+
+A lot of the following is taken from this [GREAT stackoverflow post
+]()
+I typically think of this as being used to access ordered iterables, like lists, strings, tuples, etc.
+
+```python
+[start=0:stop:step=1] ## Note that "stop" is the first value NOT in the slice
+## To exlude paramaters, keep colons
+## For example,
+myReverseStr = myStr[::-1]
+myDeepCopy = myStr[:]
+```
+
+Note that this also is obviously used to access items and not just return a sublist, for example:
+
+```python
+firstItem = myList[0]
+lastItem = myList[-1]
+```
+
+But I guess that doesn't really follow the parameters of using the subscript operator (`[]`) to slice.
+
+Speaking of slicing, there's a whole function that does the same thing.
+
+```python
+myList[2:6] == myList[slice(2, 6)]
+```
+
 ### Change data type
 
 str to list: `myList = list(myStr)`
@@ -260,7 +363,26 @@ len(object)
 
 returns number of items in an object or characters in string
 
-### Enumerate (For loop with index and item)
+## Miscellaneous
+
+### Control flow
+
+### For loops
+
+```python
+for num in numsList:
+  print(num)
+```
+
+Note that python technically only supports enhanced for loops like above, but you can always use a generator:
+
+```python
+for index in range(len(numsList)):
+  print("Index:", index)
+  print("Value:", numsList[index])
+```
+
+#### Enumerate (For loop with index and item)
 
 Takes a collection and gives an id to each item, useful to get features of a traditional and enhanced for loop
 
@@ -269,6 +391,24 @@ for index, value in enumerate(nums):
   print("The index is", index)
   print("The value is", value)
 ```
+
+#### Range
+
+Note that I pretty much only use `range()` in for loops, so this description will reflect that. Note that range actually returns a range object, but is as an iterable for my purposes
+
+**Initialize:**
+
+```python
+range(start=0, stop, step=1)
+```
+
+Note that `start=0` and `step=1` indicates that these are optional parameters, and gives their default value.
+
+**Keywords:**
+
+`break`: break out of a for or while loop
+
+`continue`: skip to the next iteration of a for or while loop
 
 ## Other concepts to understand
 
