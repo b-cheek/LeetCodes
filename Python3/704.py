@@ -2,8 +2,8 @@ class Solution0: #iterative
     def search(self, nums: List[int], target: int) -> int:
         l = 0
         r = len(nums)-1
-        while l<=r:
-            m = (l+r)//2
+        while l<=r: ## Yes, <= is necessary
+            m = (l+r)//2 ## Rewrite as m = l+(r-l)//2 to avoid overflow. Not necessary here, but LOOK AT CONSTRAINTS!
             if target<nums[m]:
                 r = m-1
             elif target>nums[m]:

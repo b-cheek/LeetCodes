@@ -429,6 +429,7 @@ I think the best way to explain this section is to just explain why I decided to
 * Recursion
   * Implemented as stack
 * Breadth first vs depth first traversal
-* Tail recursion?
+* Tail recursion
+  * Python does not have tail-call optimization
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.
