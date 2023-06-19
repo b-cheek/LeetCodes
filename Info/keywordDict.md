@@ -188,6 +188,10 @@ myDeque = deque()
 myDeque = deque([1,2,3])
 ```
 
+Note in the following sections that the push vs pop for stack vs queue is technically arbitrary.
+
+For stack, pop from the same side you push, and for queue, pop from the opposite side you push. I just have the following preferences:
+
 #### As a Stack
 
 **Push:** `myStack.append(1)`
@@ -195,6 +199,14 @@ myDeque = deque([1,2,3])
 **Pop:** `myStack.pop()` (Note this returns the popped value as well)
 
 **Access:** `frontVal = myStack[-1]`
+
+#### As a Queue
+
+**Push:** `myQ.append(1)`
+
+**Pop:** `myQ.pop()`
+
+**Access:** `myQ[0]`
 
 ## Algorithms
 
@@ -431,5 +443,6 @@ I think the best way to explain this section is to just explain why I decided to
 * Breadth first vs depth first traversal
 * Tail recursion
   * Python does not have tail-call optimization
+* Flood fill optimizations such as [span filling](https://en.wikipedia.org/wiki/Flood_fill#Span_filling) ([P733](/Python3/733.py))
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.
