@@ -218,6 +218,17 @@ max(myList)==3
 max(1,2,3)==3
 ```
 
+### Floor
+
+```python
+from math import floor
+floor(1.2)==2
+```
+
+Note that floor is commonly used with division, such as in finding a midpoint for binary search ([P704](/Python3/704.py))
+
+In this case, you can use the integer division operator: `3//2==1`
+
 ### Sort
 
 Note that python uses [Timsort](https://en.wikipedia.org/wiki/Timsort#), which is stable and O(nlogn)
@@ -367,7 +378,7 @@ I typically think of this as being used to access ordered iterables, like lists,
 ## To exlude paramaters, keep colons
 ## For example,
 myReverseStr = myStr[::-1]
-myDeepCopy = myStr[:]
+myDeepCopy = myList[:] ## Note that deep copy is irrelevant to strings since they are immutable, don't need to worry about that
 ```
 
 Note that this also is obviously used to access items and not just return a sublist, for example:
@@ -385,9 +396,20 @@ Speaking of slicing, there's a whole function that does the same thing.
 myList[2:6] == myList[slice(2, 6)]
 ```
 
+### Unpacking
+
+Use the `*` to unpack an iterable in python.
+
+My main use for this has been copying values of lists:
+
+```python
+myDeepCopy = [*myList]
+myStrList = [*myString]
+```
+
 ### Change data type
 
-str to list: `myList = list(myStr)`
+str to list: `myList = list(myStr)` or `myList = [*myStr]`
 
 char to int: `myInt = ord(myChar)`
 
