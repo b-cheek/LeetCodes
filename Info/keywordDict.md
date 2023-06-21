@@ -210,7 +210,17 @@ For stack, pop from the same side you push, and for queue, pop from the opposite
 
 ## Algorithms
 
+### Max
+
+```python
+myList = [1,2,3]
+max(myList)==3
+max(1,2,3)==3
+```
+
 ### Sort
+
+Note that python uses [Timsort](https://en.wikipedia.org/wiki/Timsort#), which is stable and O(nlogn)
 
 **Any iterable:**
 
@@ -240,6 +250,25 @@ This example sorts a list of strings by (increasing) length instead of alphabeti
 
 ```python
 myStrList.sort(key=lambda s : len(s))
+```
+
+### Automatic Memoization with @cache
+
+Automatically applies memoization in the cache to the following function.
+
+The [Python Docs](https://docs.python.org/3/library/functools.html) explain it very well.
+
+```python
+@cache
+def factorial(n):
+    return n * factorial(n-1) if n else 1
+
+>>> factorial(10)      # no previously cached result, makes 11 recursive calls
+3628800
+>>> factorial(5)       # just looks up cached value result
+120
+>>> factorial(12)      # makes two new recursive calls, the other 10 are cached
+479001600
 ```
 
 ### Filter
@@ -380,9 +409,20 @@ returns number of items in an object or characters in string
 
 ## Miscellaneous
 
+### Infinity
+
+```python
+maxNum = float("inf")
+
+## OR
+
+from math import inf
+maxNum = inf
+```
+
 ### Control flow
 
-### For loops
+#### For loops
 
 ```python
 for num in numsList:
@@ -431,6 +471,7 @@ I think the best way to explain this section is to just explain why I decided to
 
 * Hashing
 * Heap
+* Timsort (python's default sort)
 * Self-balancing tree
   * Probably not necessary to know implentation but examples:
   * Red-black
@@ -444,5 +485,7 @@ I think the best way to explain this section is to just explain why I decided to
 * Tail recursion
   * Python does not have tail-call optimization
 * Flood fill optimizations such as [span filling](https://en.wikipedia.org/wiki/Flood_fill#Span_filling) ([P733](/Python3/733.py))
+* DP
+  * Tabulation is better when all subproblems must be calculated ([P53](/Python3/53.py))
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.
