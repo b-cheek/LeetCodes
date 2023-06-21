@@ -431,6 +431,22 @@ returns number of items in an object or characters in string
 
 ## Miscellaneous
 
+### Comparison Chaining
+
+In python you can chain comparisons. From [Python 3 Docs](https://docs.python.org/3/reference/expressions.html#comparisons)
+
+> Comparisons can be chained arbitrarily, e.g., x < y <= z is equivalent to x < y and y <= z, except that y is evaluated only once (but in both cases z is not evaluated at all when x < y is found to be false).
+
+See how this is applied in [P235](../Python3/235.py):
+
+```python
+p.val<root.val>q.val ## Both p and q have a val < root
+p.val>root.val<q.val ## Both are greater
+p.val<q.val<root.val ## See below
+```
+
+The last statement also implies p and q are less than root by the transitive property, but note that it explicitly says that p is less than q, which might be too specific.
+
 ### Infinity
 
 ```python
