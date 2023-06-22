@@ -210,12 +210,16 @@ For stack, pop from the same side you push, and for queue, pop from the opposite
 
 ## Algorithms
 
-### Max
+### Max/Min
 
 ```python
 myList = [1,2,3]
-max(myList)==3
-max(1,2,3)==3
+
+max(myList) == 3
+max(1,2,3) == 3
+
+min(myList) == 1
+min(1,2,3) == 1
 ```
 
 ### Floor
