@@ -233,6 +233,14 @@ Note that floor is commonly used with division, such as in finding a midpoint fo
 
 In this case, you can use the integer division operator: `3//2==1`
 
+### Absolute value
+
+```python
+abs(-1)==1
+```
+
+Built in function, no keywords necessary.
+
 ### Sort
 
 Note that python uses [Timsort](https://en.wikipedia.org/wiki/Timsort#), which is stable and O(nlogn)
@@ -524,6 +532,8 @@ I think the best way to explain this section is to just explain why I decided to
 * Recursion
   * Implemented as stack
 * Breadth first vs depth first traversal
+  * DFS traversal orders
+  * Iterative implentations of traversal
 * Tail recursion
   * Python does not have tail-call optimization
 * Flood fill optimizations such as [span filling](https://en.wikipedia.org/wiki/Flood_fill#Span_filling) ([P733](/Python3/733.py))
