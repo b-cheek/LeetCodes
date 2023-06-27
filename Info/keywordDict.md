@@ -73,6 +73,25 @@ mySet == {1, 2, 3}
 
 (Note that set is technically unordered)
 
+### Tuple
+
+**Initialize:**
+
+```python
+myTuple = (1, 2, 3)
+otherTuple = 1, 2, 3
+myTuple==otherTuple
+```
+
+Note that initializing a tuple without parentheses and unpacking its contents into other variables is often used for assignment patterns, see [Sequence Unpacking](#sequence-unpacking)
+
+**Access:**
+
+```python
+myTuple = ('a', 'b', 'c')
+myTuple[1]=='b'
+```
+
 ### Dictionary
 
 **Initialize:**
@@ -408,9 +427,30 @@ Speaking of slicing, there's a whole function that does the same thing.
 myList[2:6] == myList[slice(2, 6)]
 ```
 
-### Unpacking
+### Sequence Unpacking
 
-Use the `*` to unpack an iterable in python.
+We can extract values from any iterable during assignment
+
+```python
+nums = [1, 2, 3]
+num0, num1, num2 = myNums
+left, right = 0, len(nums)-1 # Note that this is technically unpacking a tuple
+myDict = {'a': 1, 'b': 2}
+key0, key1 = myDict # Recall that iterating through a dict defaults to keys
+```
+
+See: [Tuple](#tuple): initialization and [dictionary](#dictionary): iteration
+
+If you are assigning fewer variables than the length of the sequence being unpacked, use `*` to get the remainder of the elements
+
+```python
+fruits = ("apple", "banana", "strawberry", "cherry")
+green, yellow, *red = fruits
+
+green == 'apple'
+yellow == 'banana'
+red == ['strawberry', 'cherry']
+```
 
 My main use for this has been copying values of lists:
 
@@ -419,7 +459,7 @@ myDeepCopy = [*myList]
 myStrList = [*myString]
 ```
 
-### Change data type
+### Change Data Type
 
 str to list: `myList = list(myStr)` or `myList = [*myStr]`
 
@@ -538,6 +578,6 @@ I think the best way to explain this section is to just explain why I decided to
   * Python does not have tail-call optimization
 * Flood fill optimizations such as [span filling](https://en.wikipedia.org/wiki/Flood_fill#Span_filling) ([P733](/Python3/733.py))
 * DP
-  * Tabulation is better when all subproblems must be calculated ([P53](/Python3/53.py))
+  * Tabulation (bottom up) is better when all subproblems must be calculated ([P53](/Python3/53.py))
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.
