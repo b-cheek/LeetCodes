@@ -14,7 +14,7 @@ class Solution0:
             temp = temp.next
         return False
 
-class Solution1:
+class Solution1: # This is the optimal solution, O(n) time, O(1) space
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head: return False
         slow = head
@@ -25,7 +25,7 @@ class Solution1:
             fast = fast.next.next
         return False
 
-class Solution2:
+class Solution2: # Lol
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         try:
             slow = head
