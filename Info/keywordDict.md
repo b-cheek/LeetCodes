@@ -194,6 +194,12 @@ Note that `item` can be anything I think, I don't know if there is a way to modi
 
 Note that this will pop the item with the smallest value from the heap, since heapq does a min heap.
 
+**Push and Pop at the same time!**
+
+`heapq.heappushpop(myHeap, item)`
+
+This is useful to maintain a certain size heap
+
 ### Stack/Queue
 
 Stacks and queues are typically implemented using python's deque (pronounced "deque") module, short for double-ended queue. This means that you can pop or push from either the left or right end
