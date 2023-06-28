@@ -52,6 +52,16 @@ Note that + can also be used for [concatenation](#concatenate)
 
 **Check if alphanumeric:** `myStr.isalnum()`
 
+#### Formatting
+
+fstrings allow you to insert variables into your strings easily:
+
+```python
+age = 20
+ageString = f"I am {age} years old"
+ageString == "I am 20 years old"
+```
+
 ### Set
 
 **Initialize:**
@@ -200,7 +210,7 @@ Note that this will pop the item with the smallest value from the heap, since he
 
 This is useful to maintain a certain size heap
 
-### Stack/Queue
+### Stack/Queue (Deque)
 
 Stacks and queues are typically implemented using python's deque (pronounced "deque") module, short for double-ended queue. This means that you can pop or push from either the left or right end
 
@@ -213,6 +223,13 @@ myDeque = deque()
 myDeque = deque([1,2,3])
 ```
 
+**Check if empty:**
+
+```python
+if len(dq)==0:
+if not len(dq):
+```
+
 Note in the following sections that the push vs pop for stack vs queue is technically arbitrary.
 
 For stack, pop from the same side you push, and for queue, pop from the opposite side you push. I just have the following preferences:
@@ -223,7 +240,7 @@ For stack, pop from the same side you push, and for queue, pop from the opposite
 
 **Pop:** `myStack.pop()` (Note this returns the popped value as well)
 
-**Access:** `frontVal = myStack[-1]`
+**Peek:** `frontVal = myStack[-1]`
 
 #### As a Queue
 
@@ -231,7 +248,31 @@ For stack, pop from the same side you push, and for queue, pop from the opposite
 
 **Pop:** `myQ.pop()`
 
-**Access:** `myQ[0]`
+**Peek:** `myQ[0]`
+
+### Object (Class)
+
+I think its best to explain class with an example of a class:
+
+```python
+class Dog:
+
+  legs = 4 # Class variable
+
+  def __init__(self, breed): # Constructor
+    self.breed = breed
+
+  def __str__(self): # when you use built-in str() fn
+    return f"I am a {self.breed}"
+
+  def recurse(self):
+    return self.recurse()
+
+Rodger = Dog("pug")
+Dog.legs == 4
+Rodger.legs == 4
+Rodger.breed == "pug"
+```
 
 ## Algorithms
 
