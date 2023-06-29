@@ -309,7 +309,7 @@ Built in function, no keywords necessary.
 
 ### Sort
 
-Note that python uses [Timsort](https://en.wikipedia.org/wiki/Timsort#), which is stable and O(nlogn)
+Note that python uses [Timsort](https://en.wikipedia.org/wiki/Timsort#), which is stable and O(nlogn) time, O(n) space (better with semi-ordered data)
 
 **Any iterable:**
 
@@ -655,5 +655,6 @@ I think the best way to explain this section is to just explain why I decided to
 * Flood fill optimizations such as [span filling](https://en.wikipedia.org/wiki/Flood_fill#Span_filling) ([P733](/Python3/733.py))
 * DP
   * Tabulation (bottom up) is better when all subproblems must be calculated ([P53](/Python3/53.py))
+* Time complexity of triangular num ([P15](/Python3/15.py))
 
 I hope I add more to this since it's funny when the description is so long compared to the actual list.
