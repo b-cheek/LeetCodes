@@ -557,6 +557,35 @@ from math import inf
 maxNum = inf
 ```
 
+### Max Int
+
+The int type is unbounded, so max int will be same as the max word size for the interpreter, typically same as the system's max word size.
+
+```python
+import sys
+
+sys.maxsize==9223372036854775807 # x64 systems, =2^63-1
+sys.maxsize==2147483647 # x32 systems, =2^31-1
+```
+
+### Prevent Overflow
+
+In a case where you are working with very large numbers, even though a result is < [maxsize](#max-int), an intermediate value could cause overflow. A great example is binary search([P704](/Python3/704.py)):
+
+```python
+        l = 0
+        r = len(nums)-1
+        while l<=r:
+            m = l+(r-l)//2 # Using this instead of (l+r)//2 prevents overflow
+            if target<nums[m]:
+                r = m-1
+            elif target>nums[m]:
+                l = m+1
+            else:
+                return m
+        return -1
+```
+
 ### Control flow
 
 #### For loops
