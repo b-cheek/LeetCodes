@@ -15,7 +15,14 @@ myList = [0]*26
 myDigitsList = [i for i in range(10)]
 ```
 
-Note that the last list is initialized with 26 0's
+Note that the 2nd to last list is initialized with 26 0's
+
+**Remove:**
+
+```python
+myList.pop(index) # Removes item at index from list, defaults to last item, returns value
+myList.remove(item) # Removes first occurrence of item, no return
+```
 
 **Append:**
 
@@ -47,6 +54,14 @@ msg == "Hello World!"
 ```
 
 Note that + can also be used for [concatenation](#concatenate)
+
+**Replace/Remove:**
+
+```python
+string.replace('oldVal', 'newVal', count=0)
+```
+
+Count optionally specifies the number of occurrences to replace. To use `replace` to remove, you can just do `myString.replace('removeVal', '', 1)`. Note that this will do nothing if `removeVal` is not present, so if you need to know if the substring was present or not you should convert to a list and use the remove method from [list](#list)
 
 **To Lowercase:** `myStr.lower()` (Note this returns a string, not in place)
 
@@ -249,6 +264,25 @@ For stack, pop from the same side you push, and for queue, pop from the opposite
 **Pop:** `myQ.pop()`
 
 **Peek:** `myQ[0]`
+
+### Counter
+
+> A Counter is a dict subclass for counting hashable objects. It is a collection where elements are stored as dictionary keys and their counts are stored as dictionary values. Counts are allowed to be any integer value including zero or negative counts
+
+\- [Python Docs](https://docs.python.org/3/library/collections.html#collections.Counter)
+
+**Initialize:**
+
+```python
+from collections import Counter
+
+c = Counter() # a new, empty counter
+c = Counter('gallahad') # a new counter from an iterable (this will track the number of occurrences for each character)
+c = Counter({'red': 4, 'blue': 2}) # a new counter from a mapping
+c = Counter(cats=4, dogs=8) # a new counter from keyword args
+```
+
+Note that counters support various math and logic operations, such as subtraction in [P383.3](/Python3/383.py)
 
 ### Object (Class)
 
@@ -528,6 +562,16 @@ len(object)
 
 returns number of items in an object or characters in string
 
+### Find
+
+Often you want to check if a certain item exists in an iterable
+
+```python
+if key in myDict:
+if item in myList
+myList.index(item) # Returns first ocurrence of item, throws error otherwise
+```
+
 ## Miscellaneous
 
 ### Comparison Chaining
@@ -573,18 +617,31 @@ sys.maxsize==2147483647 # x32 systems, =2^31-1
 In a case where you are working with very large numbers, even though a result is < [maxsize](#max-int), an intermediate value could cause overflow. A great example is binary search([P704](/Python3/704.py)):
 
 ```python
-        l = 0
-        r = len(nums)-1
-        while l<=r:
-            m = l+(r-l)//2 # Using this instead of (l+r)//2 prevents overflow
-            if target<nums[m]:
-                r = m-1
-            elif target>nums[m]:
-                l = m+1
-            else:
-                return m
-        return -1
+l = 0
+r = len(nums)-1
+while l<=r:
+    m = l+(r-l)//2 # Using this instead of (l+r)//2 prevents overflow
+    if target<nums[m]:
+        r = m-1
+    elif target>nums[m]:
+        l = m+1
+    else:
+        return m
+return -1
 ```
+
+### Error Handling (Try/Except)
+
+```python
+try:
+  print(x)
+except NameError:
+  print("Variable x is not defined")
+except:
+  print("Something else went wrong")
+```
+
+Note that this is helpful algorithmically for functions that return an error on certain conditions. For example, see how [P383.0](/Python3/383.py) uses a try/except block to remove an item from a list if it exists, otherwise returns False instead of throwing an error.
 
 ### Control flow
 
@@ -656,5 +713,6 @@ I think the best way to explain this section is to just explain why I decided to
 * DP
   * Tabulation (bottom up) is better when all subproblems must be calculated ([P53](/Python3/53.py))
 * Time complexity of triangular num ([P15](/Python3/15.py))
-
-I hope I add more to this since it's funny when the description is so long compared to the actual list.
+* collections.defaultdict vs dict.get(key, default)
+  * defaultdict creates an entry using the default if not present, faster
+  * .get just returns the specified default, less space
