@@ -1,4 +1,4 @@
-class Solution:
+class Solution0:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if len(s)<2: return len(s)
         maxSubstrLen = 0
@@ -43,6 +43,22 @@ class Solution2:
             res = max(res, r-l+1)
             r+=1
         
+        return res
+
+class Solution3: # like s2, but with a set instead of a list. O(2n) -> O(n)
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        l = 0
+        res = 0
+        curChars = set()
+
+        for r in range(len(s)):
+            while s[r] in curChars: # While loop moves l to the first char after the duplicate,
+                curChars.remove(s[l]) # and removes the corresponding chars from the set
+                l += 1 # Since while always increments l, loop has at most n iterations
+            curChars.add(s[r])
+            res = max(res, r-l+1) # Evaluate each time to remove need to account for case where res is at end of s
+            # Also would be repeating for no reason if in while loop
+
         return res
 
 s = Solution2()

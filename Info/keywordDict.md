@@ -88,15 +88,8 @@ emptySet = set()
 
 Check if contains: `if "apple" in mySet`
 
-**Append:**
-
-```python
-mySet = {1, 2}
-mySet.add(3)
-mySet == {1, 2, 3}
-```
-
-(Note that set is technically unordered)
+**Append:** `mySet.add(3)`
+**Remove:** `mySet.remove(3)`
 
 ### Tuple
 
