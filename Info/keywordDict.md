@@ -681,6 +681,31 @@ Note that `start=0` and `step=1` indicates that these are optional parameters, a
 
 `continue`: skip to the next iteration of a for or while loop
 
+### Helper functions
+
+I am doing this in the context of leetcode, so I'll give an example in their kind of format:
+
+```python
+class Solution:
+  def algorithm(self, nums: List[int], target: int) -> int:
+    def helper(target: int):
+      # Do some recursive operation on nums
+      return helper(target - 1)
+
+    return helper(target)
+```
+
+This might be a little weird, but the point is to demonstrate how the helper function is just a part of `algorithm`. If the helper were another class member, then we could pass self (like `this` for the `Solution` object), but it's not necessary.
+
+Note that if we are doing recursion without a helper function, we **will** use self, since it is a member of the solution class:
+
+```python
+class Solution:
+  def recursiveAlgorithm(self, nums: List[int], target: int) -> int:
+    # Do some recursive operation on nums
+    return self.recurseiveAlgorithm(nums, target-1)
+```
+
 ## Other concepts to understand
 
 I think the best way to explain this section is to just explain why I decided to add it. In P347, I used the heapq module, and I think in an interview it's reasonable to expect an interviewer to check if I understand heaps in general. Since that knowledge isn't required to write the python code, I won't go into full detail since this is a "keywordDict." However, the purpose of this document is to enumerate technical vocabulary to know for the interview as I come across it in LC problem, so I'm still listing these sorts of things as vocabulary to know.
