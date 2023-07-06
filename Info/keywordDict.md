@@ -67,6 +67,48 @@ Count optionally specifies the number of occurrences to replace. To use `replace
 
 **Check if alphanumeric:** `myStr.isalnum()`
 
+**Check if number:**
+
+```python
+# Difference in unicode classification
+myStr.isdecimal()
+myStr.isdigit()
+myStr.isnumeric()
+# isnumeric includes the most unicode characters,
+# but NONE OF THESE work for negative or decimals
+
+# Works with negative and decimals. Note behavior of int()
+try:
+  # If numeric
+  int(myStr)
+except:
+  # If not numeric
+```
+
+[Difference between is...() functions](https://stackoverflow.com/questions/44891070/whats-the-difference-between-str-isdigit-isnumeric-and-isdecimal-in-pyth) 
+
+[Behavior of int()](#truncation-towards-zero)
+
+**Regex:**
+
+```python
+import re
+
+def is_number(input_str): # Match for a +/- int or float
+    pattern = r'^[-+]?\d*\.?\d+$'
+    return re.match(pattern, input_str, re.ASCII) is not None
+```
+
+Here is a breakdown of this expression so you can modify it for your own use:
+
+* `^`: Matches the start of the string.
+* `[-+]?`: Matches an optional positive or negative sign.
+* `\d*`: Matches zero or more digits
+* `\.?`: Matches an optional decimal point.
+* `\d+`: Matches one or more digits.
+* `$`: Matches the end of the string.
+* `re.ASCII`: A flag changes the default from full unicode matching to ASCII matching (`/d == [0-9]`)
+
 #### Formatting
 
 fstrings allow you to insert variables into your strings easily:
@@ -277,6 +319,33 @@ c = Counter(cats=4, dogs=8) # a new counter from keyword args
 
 Note that counters support various math and logic operations, such as subtraction in [P383.3](/Python3/383.py)
 
+### Lambda
+
+```python
+lambda arguments : expression
+```
+
+Here is a simple example making a multiplication function with `def`, and then the same function with `lambda`
+
+```python
+def multiply(a, b):
+  return a*b
+
+lambdaMultiply = lambda a, b : a*b
+```
+
+I also like this example from [W3Schools](https://www.w3schools.com/python/python_lambda.asp):
+
+```python
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+```
+
+Note that a lambda can be used as an argument for a function (like in [sort](#sort) and [filter](#filter)), as a value in a hash map (see [P150.2](/Python3/150.py)), etc.
+
 ### Object (Class)
 
 I think its best to explain class with an example of a class:
@@ -315,16 +384,36 @@ min(myList) == 1
 min(1,2,3) == 1
 ```
 
-### Floor
+### Truncation
+
+The practice of removing decimal points
+
+#### Floor
 
 ```python
 from math import floor
-floor(1.2)==2
+floor(1.7)==1
 ```
 
 Note that floor is commonly used with division, such as in finding a midpoint for binary search ([P704](/Python3/704.py))
 
 In this case, you can use the integer division operator: `3//2==1`
+
+#### Ceiling
+
+```python
+from math import ceil
+ceil(-1.7)==-1
+```
+
+#### Truncation towards zero
+
+```python
+int(-1.7)==-1
+int(1.7)==1
+```
+
+Note that this technique strictly just removes any decimal value, whereas `floor` and `ceil` will round down or up respectively. I guess this is helpful if you're thinking of the int as a vector, so this just truncates the magnitude no matter the direction. Note that this technique is used with division in [P150](/Python3/150.py).
 
 ### Absolute value
 
@@ -405,30 +494,9 @@ alNumIter = filter(lambda char : char.isalnum(), s)
 
 Note that the filter function returns an iterator, use `''.join(alNumIter)` to turn it back into a string
 
-### Lambda
+### Lambda function
 
-```python
-lambda arguments : expression
-```
-
-Here is a simple example making a multiplication function with `def`, and then the same function with `lambda`
-
-```python
-def multiply(a, b):
-  return a*b
-
-lambdaMultiply = lambda a, b : a*b
-```
-
-I also like this example from [W3Schools](https://www.w3schools.com/python/python_lambda.asp):
-
-```python
-def myfunc(n):
-  return lambda a : a * n
-
-mydoubler = myfunc(2)
-mytripler = myfunc(3)
-```
+For general use, see the [explanation](#lambda) in the data types section.
 
 Note that lambda functions are useful as parameters to other functions, see [sort](#sort) and [filter](#filter).
 
@@ -546,6 +614,8 @@ list of strings to string: `myStr = ''.join(myStrList)`
 list to tuple: `myTuple = tuple(myList)`
 
 list to set (removes duplicates): mySet = `set(myList)`
+
+float to int: `myInt = int(myFloat)` (Note that this will [truncate](#truncation-towards-zero) the result)
 
 ### Length
 
