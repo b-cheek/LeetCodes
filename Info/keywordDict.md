@@ -12,10 +12,21 @@ Note I am only adding to this document AS I COME ACROSS things that I don't know
 myList = [1, 2, 3]
 myList = ['a', 'b', 'c']
 myList = [0]*26
-myDigitsList = [i for i in range(10)]
+myDigitsList = [i for i in range(10)] # List comprehension
 ```
 
-Note that the 2nd to last list is initialized with 26 0's
+Note that the 2nd to last list is initialized with 26 0's.
+Only use this technique for immutable values, otherwise you will create shallow copies of the same object. For example, `[[]]*26` will fill the parent list with 26 references to the same list object!
+
+note that `list()` is a constructor to return a list
+
+in LC problems you will often see
+
+```python
+nums: List[int]
+```
+
+This is stricly used for typing (defining a type like in a statically typed language), and requires `from typing import list`
 
 **Remove:**
 
@@ -85,7 +96,7 @@ except:
   # If not numeric
 ```
 
-[Difference between is...() functions](https://stackoverflow.com/questions/44891070/whats-the-difference-between-str-isdigit-isnumeric-and-isdecimal-in-pyth) 
+[Difference between is...() functions](https://stackoverflow.com/questions/44891070/whats-the-difference-between-str-isdigit-isnumeric-and-isdecimal-in-pyth)
 
 [Behavior of int()](#truncation-towards-zero)
 
