@@ -1,5 +1,7 @@
 {
     "files.associations": {
         "xstring": "cpp"
-    }
+    },
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false
 }
