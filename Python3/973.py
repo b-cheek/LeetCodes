@@ -16,6 +16,8 @@ class Solution0: # O(nlogk) time, O(k) space for pq
 
         return [point for dist, point in pq] # Strip the distance from the result
 
+
+# Quickselect implementation
 class Solution1: # Faster, but such a pain to understand this partitioning algorithm (Note that this is still O(n^2) for worst case, sorted or same values. O(n) on average though?)
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         def compare(p1, p2): # Compare function, returns difference in distance to origin
@@ -26,6 +28,8 @@ class Solution1: # Faster, but such a pain to understand this partitioning algor
             pivot = points[l] # The first element of the subarray is chosen arbitrarily
             # Rearrange points so that all elements smaller than pivot are to the left of it, and vice versa
             while l<r:
+                # This is a modified version of Hoare's partition scheme that is still confusing to me.
+                # If I revisit this, maybe I'll attempt to make it more readable.
                 # In each iteration this is essentially happening:
                 #  - Find the first element from the right that is smaller than pivot (r)
                 #  - Find the first element from the left that is larger than pivot (l)

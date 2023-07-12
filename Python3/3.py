@@ -51,8 +51,10 @@ class Solution3: # like s2, but with a set instead of a list. O(2n) -> O(n)
         res = 0
         curChars = set()
 
+        # Sliding window containing a substring with no duplicates
         for r in range(len(s)):
-            while s[r] in curChars: # While loop moves l to the first char after the duplicate,
+            while s[r] in curChars: # If there is a duplicate, 
+            # while loop moves l to the first char after the duplicate on the LEFT end of the substring
                 curChars.remove(s[l]) # and removes the corresponding chars from the set
                 l += 1 # Since while always increments l, loop has at most n iterations
             curChars.add(s[r])
