@@ -4,7 +4,7 @@
 # This solution is what I tried at first, helpful for understanding S1 if necessary
 # Recursive DFS, exceed runtime. I guess I could've memoized with a helper fn and global table.
 # But at that point, it basically becomes tabulation anyway.
-class Solution1:
+class Solution0:
     # Note that I tried to use @cache here, but didn't work saying that the list was unhashable.
     # I just now realized that this is because the memo dictionary can't use the list parameter as a key!
     def coinChange(self, coins: List[int], amount: int) -> int:
@@ -49,7 +49,7 @@ class Solution1:
         return dp[amount] if dp[amount] < amount+1 else -1
 
 
-# Same as S1, but with a sliding window to save space
+# Same as S1, but with a sliding window (not like the typical algorithm) to save space
 class Solution2:
     def coinChange(self, coins: List[int], amount: int) -> int: # O(amount*len(coins)) time, O(max(coins)) space
         dp = [0] # We start with just dp[0]=0, and we add to the array as we go
@@ -62,7 +62,7 @@ class Solution2:
                         1 + dp[-coinVal],
                         newVal
                     )
-            if len(dp)==max(coins): dp.pop(0) # Since we only access as far back as -coinVal
+            if len(dp)==max(coins): dp.pop(0) # the optimization, since we only access as far back as -coinVal
             dp.append(newVal)
 
         return dp[-1] if dp[-1] < amount+1 else -1
