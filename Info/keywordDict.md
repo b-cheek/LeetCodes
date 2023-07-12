@@ -819,3 +819,4 @@ I think the best way to explain this section is to just explain why I decided to
   * [PEP8 adapted from Python Docs](https://pep8.org/)
   * [Google](https://google.github.io/styleguide/pyguide.html)
   * [The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/style/)
+  
