@@ -1,3 +1,5 @@
+# 3Sum
+
 # Neetcode vid: https://www.youtube.com/watch?v=jzZsG8n2R9A
 # This problem is clearly an extension of 2 sum, but it's a little different
 # because there are duplicate values in the input, and we need to submit every valid triplet (without a duplicate triplet)

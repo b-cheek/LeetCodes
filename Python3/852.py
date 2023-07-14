@@ -1,3 +1,5 @@
+# Peak Index in a Mountain Array
+
 class Solution0: #third accepted solution
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
         l=0

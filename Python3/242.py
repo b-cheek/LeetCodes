@@ -1,3 +1,5 @@
+# Valid Anagram
+
 class Solution0: #Why was this so slow? Perhaps consider checking length of inputs at start
     def isAnagram(self, s: str, t: str) -> bool:
         s = list(s)

@@ -1,3 +1,5 @@
+# Ransom Note
+
 # Naive solution, remove each letter in ransome note from magazine, and if magazine doesn't have that letter return false
 # Note that the list conversion is necessary, the string replace() method doesn't do anything if the search string isn't present
 class Solution0: # O(n + n^2) -> O(n^2)

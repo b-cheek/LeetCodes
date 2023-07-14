@@ -1,3 +1,5 @@
+# Range Sum Query - Immutable
+
 class NumArray0:
 
     def __init__(self, nums: List[int]):

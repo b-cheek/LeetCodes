@@ -1,3 +1,5 @@
+# Best Time to Buy and Sell Stock
+
 from typing import List
 
 class Solution0: # Brute Force, O(n^2)

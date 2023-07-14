@@ -1,3 +1,5 @@
+# Binary Search
+
 class Solution0: #iterative
     def search(self, nums: List[int], target: int) -> int:
         l = 0

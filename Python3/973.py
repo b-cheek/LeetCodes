@@ -1,3 +1,5 @@
+# K Closest Points to Origin
+
 # Use a priority queue to maintain k closest points
 # Implemented as a max heap, so we can pop the largest element when the size exceeds k
 class Solution0: # O(nlogk) time, O(k) space for pq

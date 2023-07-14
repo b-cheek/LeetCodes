@@ -1,3 +1,5 @@
+# Longest Palindrome
+
 # This solution leverages the property that palindromes are mirrored through the middle;
 # this means that any character left of the middle also appears right of the middle, and one middle character can appear once.
 # In the solution we iterate over the string, keeping track of each character.

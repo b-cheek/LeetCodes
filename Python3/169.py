@@ -1,3 +1,5 @@
+# Majority Element
+
 class Solution0: #Skipped a brute force solution
     def majorityElement(self, nums: List[int]) -> int: #O(n)
         hashMap = {}

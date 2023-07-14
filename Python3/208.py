@@ -1,3 +1,5 @@
+# Implement Trie
+
 # This trie implementation stores the children letters in an array of lenght 26, 
 # where each index is initialized to None.
 class TrieNode0:

@@ -1,3 +1,5 @@
+# Course Schedule
+
 # This solution transforms the prerequisites into a graph represented as an adjacency list,
 # then performs a topological traversal (see Kahn's algorithm) (note this is like BFS).
 # Any node in a cycle can not be visited during a topological traversal because

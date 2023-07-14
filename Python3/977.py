@@ -1,3 +1,5 @@
+# Squares of a Sorted Array
+
 class Solution0: #Basic implementation, in place
     def sortedSquares(self, nums: List[int]) -> List[int]:
         for i in range (len(nums)): nums[i]**=2

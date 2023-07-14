@@ -1,3 +1,5 @@
+# Insert Interval
+
 # I like the way this is broken into three cases and iterates through whole list.
 class Solution0: # O(n) time, O(n) space
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:

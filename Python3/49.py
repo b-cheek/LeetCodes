@@ -1,3 +1,5 @@
+# Group Anagrams
+
 class Solution0: #Store sorted strings as keys in dict, value is list of corresponding anagrams 
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         anagramDict = {}

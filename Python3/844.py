@@ -1,3 +1,5 @@
+# Backspace String Compare
+
 class Solution0: #See Solution 2 for a better version of this
     def backspaceCompare(self, s: str, t: str) -> bool:
         def typeWord(s: str) -> str:

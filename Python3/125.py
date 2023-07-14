@@ -1,3 +1,5 @@
+# Valid Palindrome
+
 class Solution0: ## Functions
     def isPalindrome(self, s: str) -> bool:
         flatStr = ''.join(filter(lambda char : char.isalnum(), s)).lower()
