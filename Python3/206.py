@@ -25,6 +25,7 @@ class Solution0:
 
 class Solution1:    #recursive
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Note that I find the use of newHead to be mostly confusing, see S3
         def reverseListRecursive(self, head: Optional[ListNode], newHead: Optional[ListNode]):
             if not head:
                 return newHead
@@ -44,3 +45,18 @@ class Solution2:    #iterative
             head = nextNode
 
         return newHead
+
+class Solution3: # Same as above, I think it's more readable though
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # head is the current node, prev is the previous node, which starts as None
+        prev = None
+        while head:
+            nextNode = head.next
+            # Point the current node to whatever is behind it
+            head.next = prev
+            # Move prev and head forward
+            prev = head
+            head = nextNode
+
+        # Once the current node is none, it's prev will be the last node of old list
+        return prev
