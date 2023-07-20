@@ -307,7 +307,7 @@ For stack, pop from the same side you push, and for queue, pop from the opposite
 
 **Push:** `myQ.append(1)`
 
-**Pop:** `myQ.pop()`
+**Pop:** `myQ.popleft()`
 
 **Peek:** `myQ[0]`
 
