@@ -787,6 +787,63 @@ class Solution:
     return self.recurseiveAlgorithm(nums, target-1)
 ```
 
+### Ternary operator
+
+Python ternary operator is accomplished with `if` and `else` in the following fashion:
+
+```python
+value_if_true if condition else value_if_false
+```
+
+You can also conditionally execute expressions, so be creative.
+
+### Assignment expressions / Walrus operator :=
+
+Use the walrus operator to assigns values to variables as part of a larger expression.
+
+```python
+if (n := len(a)) > 10:
+    print(f"List is too long ({n} elements, expected <= 10)")
+```
+
+See it used in [P33](/Python3/33.py)
+
+### Falsey coalescence / Short circuits / Elvis operator
+
+Sometimes it is useful to return/use a value only if it is not falsey, and otherwise use some other value. This can be done using the logical or in python:
+
+```python
+myNums = [1, 0]
+for num in myNums:
+  print(num or "Zero")
+# Prints:
+# 1
+# Zero
+```
+
+You can also use short circuiting to conditionally evaluate statements;
+
+Lets say you have an expensive calculation, that you only want to perform if some condition is True, and has a default value if it returns a falsey value.
+
+Typically you may do that like this:
+
+```python
+if perform_calculation:
+  if (not result:=perform_expensive_calculation()):
+    result = "Default Value"
+```
+
+Which is already somewhat sophisticated, using the [walrus operator](<Assignment expressions / Walrus operator :=>). Note how you could also make use of the ternary operator here. Alternatively, use short circuiting with logical AND OR
+
+```python
+result = perform_calculation \
+  and perform_expensive_calculation() \
+  or "Default Value"
+```
+
+Ther are some pretty creative ways to use short-circuiting, but this example is the most clear. Be creative! (but keep your code readable)
+
+
 ## Other concepts to understand
 
 I think the best way to explain this section is to just explain why I decided to add it. In P347, I used the heapq module, and I think in an interview it's reasonable to expect an interviewer to check if I understand heaps in general. Since that knowledge isn't required to write the python code, I won't go into full detail since this is a "keywordDict." However, the purpose of this document is to enumerate technical vocabulary to know for the interview as I come across it in LC problem, so I'm still listing these sorts of things as vocabulary to know.
@@ -819,4 +876,3 @@ I think the best way to explain this section is to just explain why I decided to
   * [PEP8 adapted from Python Docs](https://pep8.org/)
   * [Google](https://google.github.io/styleguide/pyguide.html)
   * [The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/style/)
-  
