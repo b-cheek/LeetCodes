@@ -426,6 +426,32 @@ int(1.7)==1
 
 Note that this technique strictly just removes any decimal value, whereas `floor` and `ceil` will round down or up respectively. I guess this is helpful if you're thinking of the int as a vector, so this just truncates the magnitude no matter the direction. Note that this technique is used with division in [P150](/Python3/150.py).
 
+### Modulus (%)
+
+Modulus returns the remainder of a division operation, but python notably does it different than other languages like C++ and java.
+
+C++ and Java use *truncated division*, where the remainder has the same sign as the dividend
+
+Python uses *floored division*, where the remainder has the same sign as the divisor.
+
+This causes different behavior in a modulus expression with exactly one negative operand:
+
+in Python:
+
+```python
+(-5) / 4 = -1.25 --> floor(-1.25) = -2
+(-5) % 4 = (-2 × 4 + 3) % 4 = 3
+```
+
+in C++/Java:
+
+```java
+(-5) / 4 = -1.25 --> trunc(-1.25) = -1
+(-5) % 4 = (-1 × 4 + -1) % 4 = -1
+```
+
+You can replicate the C++/Java behavior in python by using `math.fmod(divisor, dividend`.
+
 ### Absolute value
 
 ```python
@@ -843,7 +869,6 @@ result = perform_calculation \
 
 Ther are some pretty creative ways to use short-circuiting, but this example is the most clear. Be creative! (but keep your code readable)
 
-
 ## Other concepts to understand
 
 I think the best way to explain this section is to just explain why I decided to add it. In P347, I used the heapq module, and I think in an interview it's reasonable to expect an interviewer to check if I understand heaps in general. Since that knowledge isn't required to write the python code, I won't go into full detail since this is a "keywordDict." However, the purpose of this document is to enumerate technical vocabulary to know for the interview as I come across it in LC problem, so I'm still listing these sorts of things as vocabulary to know.
@@ -876,3 +901,7 @@ I think the best way to explain this section is to just explain why I decided to
   * [PEP8 adapted from Python Docs](https://pep8.org/)
   * [Google](https://google.github.io/styleguide/pyguide.html)
   * [The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/style/)
+* Python langauge differences
+  * Default sort TimSort
+  * Modulus floored division
+  * No tail-call optimization

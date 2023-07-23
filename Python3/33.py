@@ -110,6 +110,40 @@ class Solution2:
                     r = m - 1
 
         return -1
+
+
+# This solution cuts down the search in a similar way to S2;
+# however it does so by finding where the pivot is in relation to m and the target.
+# Note that you can remove the repeated l = m + 1, r = m - 1 lines
+# by using more complex control flow, or a new variable, but
+# I find this way to be the most readable
+class Solution2:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            m = (l + r) // 2
+
+            # If m and target are on the same side of the pivot:
+            if (nums[m] < nums[0]) == (target < nums[0]):
+                # Perform normal binary search logic
+                if nums[m] < target: l = m + 1
+                elif nums[m] > target: r = m - 1
+                else: return m
+
+            # Otherwise, m and target are on opposite sides of the pivot.
+            # Since m and target are on opposite sides, we reduce the search area by
+            # setting the search area to go from m, in the direction of target.
+            
+            # If m is left of the pivot, target is to it's right
+            elif nums[m] > nums[0]:
+                l = m + 1
+
+            # m is right of the pivot, target is to it's left
+            else:
+                r = m - 1    
+
+        return -1
         
 
 s = Solution2()
