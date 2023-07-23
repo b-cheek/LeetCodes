@@ -460,6 +460,21 @@ abs(-1)==1
 
 Built in function, no keywords necessary.
 
+### Deep copy
+
+Whenever using a mutable data type, the variable is simply a pointer to the data. This means that if you assign a variable to another variable, they will both point to the same data. This is called a shallow copy. A deep copy is when you copy the data itself, so that the two variables point to different data.
+
+Most commonly, you need to make a deep copy of a `List` (note that unlike other langauges, strings in python are immutable):
+
+```python
+myList = [1,2,3]
+myCopy = myList.copy()
+otherCopy = [*myList]
+lastOne = [i for i in myList]
+```
+
+See how the last one is necessary in the [List](#list) initialization section.
+
 ### Sort
 
 Note that python uses [Timsort](https://en.wikipedia.org/wiki/Timsort#), which is stable and O(nlogn) time, O(n) space (better with semi-ordered data)
