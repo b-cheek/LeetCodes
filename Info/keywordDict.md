@@ -6,6 +6,12 @@ Note I am only adding to this document AS I COME ACROSS things that I don't know
 
 ### List
 
+Collection that is
+
+* Ordered
+* Mutable
+* Allows duplicates
+
 **Initialize:**
 
 ```python
@@ -43,9 +49,11 @@ temp.append(3)
 temp == [1,2,3]
 ```
 
+Also see the List section of [Concatenation](#concatenate)
+
 ### String
 
-Note that strings are arrays. However, there is no character data type, just strings of length 1.
+Note that strings are like arrays. However, there is no character data type, just strings of length 1.
 
 **Initialize:**
 
@@ -132,6 +140,12 @@ ageString == "I am 20 years old"
 
 ### Set
 
+Collection that is
+
+* Unordered
+* Mutable
+* No duplicates
+
 **Initialize:**
 
 ```python
@@ -145,6 +159,12 @@ Check if contains: `if "apple" in mySet`
 **Remove:** `mySet.remove(3)`
 
 ### Tuple
+
+Collection that is
+
+* Ordered
+* Immutable
+* Allows duplicates
 
 **Initialize:**
 
@@ -164,6 +184,12 @@ myTuple[1]=='b'
 ```
 
 ### Dictionary
+
+Collection (of key-value pairs) that is:
+
+* Ordered (unordered until Python 3.7)
+* Mutable
+* Duplicate (keys) not allowed
 
 **Initialize:**
 
@@ -469,8 +495,10 @@ Most commonly, you need to make a deep copy of a `List` (note that unlike other 
 ```python
 myList = [1,2,3]
 myCopy = myList.copy()
-otherCopy = [*myList]
-lastOne = [i for i in myList]
+unpackCopy = [*myList]
+sliceCopy = myList[:] # maybe fastest?
+listCopy = list(myList)
+listCompCopy = [i for i in myList]
 ```
 
 See how the last one is necessary in the [List](#list) initialization section.
@@ -571,6 +599,9 @@ Works generally how you think, with += as well, etc.
 
 ```python
 [1,2,3] + [4,5,6] == [1,2,3,4,5,6]
+myNums = [1,2,3]
+myNums.extend([4,5,6]) # Or myNums += [4,5,6]
+myNums == [1,2,3,4,5,6]
 ```
 
 String items of an iterable: (The items **MUST** be strings)
@@ -620,6 +651,25 @@ Speaking of slicing, there's a whole function that does the same thing.
 ```python
 myList[2:6] == myList[slice(2, 6)]
 ```
+
+### Rotate a list (No algorithm, alternatives)
+
+There is no algorithm to rotate a list, but the suggested way to do it would be to call `pop()` and `append()` as necessary
+
+```python
+myList = [1,2,3]
+temp = myList.pop(0)
+myList.append(temp)
+myList == [3,2,1]
+
+# Or do it in one line if applicable:
+myList.append(myList.pop(0))
+myList == [2,1,3]
+```
+
+You can also add to the front of a list with `insert(0, item)` to rotate in the other direction.
+
+```python
 
 ### Sequence Unpacking
 
