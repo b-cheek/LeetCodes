@@ -669,8 +669,6 @@ myList == [2,1,3]
 
 You can also add to the front of a list with `insert(0, item)` to rotate in the other direction.
 
-```python
-
 ### Sequence Unpacking
 
 We can extract values from any iterable during assignment
@@ -924,7 +922,7 @@ if perform_calculation:
     result = "Default Value"
 ```
 
-Which is already somewhat sophisticated, using the [walrus operator](<Assignment expressions / Walrus operator :=>). Note how you could also make use of the ternary operator here. Alternatively, use short circuiting with logical AND OR
+Which is already somewhat sophisticated, using the [walrus operator](<keywordDict.md#Assignment expressions / Walrus operator :=>). Note how you could also make use of the ternary operator here. Alternatively, use short circuiting with logical AND OR
 
 ```python
 result = perform_calculation \
