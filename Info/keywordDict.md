@@ -51,6 +51,16 @@ temp == [1,2,3]
 
 Also see the List section of [Concatenation](#concatenate)
 
+**Insert:**
+  
+  ```python
+  temp = ['a', 'b', 'd']
+  temp.insert(2, 'c')
+  temp == ['a', 'b', 'c', 'd']
+  ```
+
+  `list.insert(index, item)` inserts item at index, shifting all items after index to the right
+
 ### String
 
 Note that strings are like arrays. However, there is no character data type, just strings of length 1.
@@ -255,8 +265,10 @@ myDict["nonExistentKey"] =
 
 **Iterate:**
 
+NOTE: as of 3.7, python dictionaries preserve insertion order.
+
 ```python
-for key in myDict:
+for key in myDict: # Note the existence of myDict.keys()
   print(myDict[key])
 
 for value in myDict.values():
@@ -536,6 +548,35 @@ This example sorts a list of strings by (increasing) length instead of alphabeti
 ```python
 myStrList.sort(key=lambda s : len(s))
 ```
+
+### Binary Insertion (insort with bisect)
+
+This is kind of cheating, but probably good to ask to demonstrate knowledge even if an interviewer says no.
+
+```python
+from bisect import insort
+mySortedList = [1, 2, 3, 4, 5, 7, 8, 9]
+mySortedList.insort(6)
+mySortedList == [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+`insort` uses the `bisect` function (alias for `bisect_right`) to find the correct insertion index efficiently using binary search
+
+### Binary Search
+
+I did this one second because it's not quite as direct as the above.
+
+```python
+from bisect import bisect_left
+myList = [0, 1, 2, 3, 5]
+res = bisect_left(myList, 4) # Finds the index of the first element >= 4 using binary search
+if res<len(myList) and myList[res]==4:
+  print("Found")
+else:
+  print("Not Found")
+```
+
+Probably good to see the [cpython source for the bisect module](https://github.com/python/cpython/blob/3.9/Lib/bisect.py#L15-L35). Also check out [bisect_left vs bisect_right](https://stackoverflow.com/questions/20297249/when-are-bisect-left-and-bisect-right-not-equal) if you're confused.
 
 ### Automatic Memoization with @cache
 
