@@ -368,6 +368,18 @@ c = Counter(cats=4, dogs=8) # a new counter from keyword args
 
 Note that counters support various math and logic operations, such as subtraction in [P383.3](/Python3/383.py)
 
+See other common patterns and mathematical operations in the [docs](https://docs.python.org/3/library/collections.html#collections.Counter)
+
+**Read/Write:**
+
+For these purposes, count works similar to a dictionary. However, it is worth noting that you can increment and decrement a nonexistent key, which will be created with a default value of zero:
+
+```python
+dogCount = Counter('dog')
+dogCount['a'] += 1
+dogCount['a'] == 1
+```
+
 ### Lambda
 
 ```python
@@ -766,7 +778,7 @@ len(object)
 
 returns number of items in an object or characters in string
 
-### Find
+### Find (boolean found and index)
 
 Often you want to check if a certain item exists in an iterable
 
@@ -775,6 +787,8 @@ if key in myDict:
 if item in myList
 myList.index(item) # Returns first ocurrence of item, throws error otherwise
 ```
+
+Note using binary search for sorted lists, can be done with [bisect](#binary-search)
 
 ## Miscellaneous
 
