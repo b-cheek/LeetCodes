@@ -7,7 +7,7 @@ class Solution0: ## Functions
 
 class Solution1: # Two pointer, O(n)
     def isPalindrome(self, s: str) -> bool:
-        slower = s.lower() # Funny
+        slower = s.lower() # Funny (not relating to fast/slow pointer, just a play on words)
         front = 0
         back = len(s)-1
 

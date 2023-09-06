@@ -56,3 +56,9 @@ class Solution3: #I think my theory may have been correct, or for whatevever rea
             stack.append(node.left)
             stack.append(node.right)
         return root
+
+class Solution4: # Simplest version, like S0.
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root == None: return None
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+        return root
