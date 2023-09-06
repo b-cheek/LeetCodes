@@ -67,7 +67,7 @@ class Solution2:
             if len(dp)==max(coins): dp.pop(0) # the optimization, since we only access as far back as -coinVal
             dp.append(newVal)
 
-        return dp[-1] if dp[-1] < amount+1 else -1
+        return dp[-1] if dp[-1] < amount+1 else -1 # The last element will be like dp[amount], but diff index because sliding window
 
 # Note further optimization of this problem by usng combinations of solutions in some sort of tree?
 # see https://en.wikipedia.org/wiki/Change-making_problem#Dynamic_programming_with_the_probabilistic_convolution_tree

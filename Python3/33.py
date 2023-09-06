@@ -124,7 +124,7 @@ class Solution2:
         while l <= r:
             m = (l + r) // 2
 
-            # If m and target are on the same side of the pivot:
+            # If m and target are on the same side of the pivot (See explanation at top for clarification):
             if (nums[m] < nums[0]) == (target < nums[0]):
                 # Perform normal binary search logic
                 if nums[m] < target: l = m + 1

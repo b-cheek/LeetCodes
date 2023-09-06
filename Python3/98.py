@@ -32,7 +32,7 @@ class Solution0:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         # left represents the greatest value above and left of node, max left ancestor
         # right represents the smallest value above and right of node, min right ancestor
-        def valid(left, node, right):
+        def valid(left, node, right): # Note that left and right are numbers, node is the only node
             if not node: return True # base case
 
             if not left<node.val<right: return False # Check that node is within the ancestor bounds
