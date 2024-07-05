@@ -41,7 +41,7 @@ class Solution3: # Smarter implementation of Kadane's Algorithm, O(n). Don't tot
     def maxProfit(self, prices: List[int]) -> int:
         maxCur = 0 # 
         maxSoFar = 0
-        for i in range(1, len(prices)): # Start at 1, I represents sell index
+        for i in range(1, len(prices)): # Start at 1, i represents sell index
             # As long as you have still made money since the buy date, keep going;
             # If it goes below 0, you wouldn't make that transaction so reset to 0
             # The next two lines of code calculate the profit from the previous day,
