@@ -53,6 +53,7 @@ class Solution3: # Smarter implementation of Kadane's Algorithm, O(n). Don't tot
 
 class Solution4: # Same as Solution3 but with a list of differences, O(n)
     def maxProfit(self, prices: List[int]) -> int:
+        # the [0] might be unnecessary based on a different (but similar) solution I just did
         diffList = [0] + [prices[i]-prices[i-1] for i in range(1, len(prices))]
         ## Get the difference between each day so maximum subarray problem is more direct
 
