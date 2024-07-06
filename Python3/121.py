@@ -72,10 +72,24 @@ class Solution5: # I think the easiest to understand, maybe not necessarily best
         
         lowest = prices[0]
         for price in prices:
+            # could use min() here instead, also variable names could be better in this Solution
             if price < lowest:
                 lowest = price
             res = max(res, price - lowest)
         return res
+
+class Solution6: # What I like most recently, similar to S3. actually idk S5 is pretty neat too.
+    def maxProfit(self, prices: List[int]) -> int:
+        curProfit = maxProfit = 0
+
+        for i in range(1, len(prices)):
+            curProfit += (prices[i] - prices[i-1])
+            if curProfit < 0:
+                curProfit = 0
+            else:
+                maxProfit = max(curProfit, maxProfit)
+        return maxProfit
+            
 
         
 s = Solution2()

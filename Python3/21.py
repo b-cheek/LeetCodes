@@ -57,6 +57,8 @@ class Solution2: # Personally prefer this iterative solution
                 list2 = list2.next
             cur = cur.next
         cur.next = list1 if list1 else list2
+        # Or use short-circuiting for above line:
+        # cur.next = list1 or list2
         return dummyHead.next
 
 class Solution3: # Personally prefer this recursive solution
