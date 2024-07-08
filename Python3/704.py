@@ -26,3 +26,7 @@ class Solution1:    #recursive
             return m
         
         return binSearch(self, nums, 0, len(nums)-1)
+
+class Solution2: # Built in
+    def search(self, nums: List[int], target: int) -> int:
+        return i if nums[i:=(bisect.bisect(nums, target)-1)] == target else -1
