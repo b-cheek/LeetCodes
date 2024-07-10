@@ -26,3 +26,21 @@ class Solution1:
             dq.pop()
 
         return len(dq)==0
+
+class Solution2: # I find this to be more beautiful readable pythonic blah blah
+    def isValid(self, s: str) -> bool:
+        reverseBrackets = {
+            ')': '(',
+            ']': '[',
+            '}': '{'
+        }
+
+        stack = deque()
+        for char in s:
+            if char not in reverseBrackets: 
+                stack.append(char)
+            elif stack and stack[-1] == reverseBrackets[char]:
+                stack.pop()
+            else:
+                return False
+        return len(stack)==0
