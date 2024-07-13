@@ -9,6 +9,7 @@ from collections import deque
 ## Want to do it because it would fill a gradient. Oh well.
 
 ## Note the existence of better solutions like span filling that are beyond the scope of the question.
+## Also note using a structure to store adjacent cell offsets
 
 class Solution0: ## Iterative BFS
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
